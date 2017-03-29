@@ -1,0 +1,86 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+
+  <div class="jumbotron text-center">
+    
+    <div ng-app="myApp" ng-controller="MainController">
+        
+        <section class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Compare preços de <strong>passagens aéreas</strong> de vários sites</h1>
+                    <img src="https://voopter.com.br/assets/imgs/layout/logo-voopter.png" alt="I'm Yeoman"><br>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="search-form">
+                        <div class="row">
+                            
+                            <div class="col-lg-8 origin-destination-passengers">
+                                
+                                <div class="input-field origin airport-selector">
+                                    <label>ORIGEM</label>
+                                    <select ng-model="vp.city_origin">
+                                        <option ng-repeat="city in cities" value="{{city}}">{{city.name}}</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-field origin airport-selector">
+                                    <label>DESTINO</label>
+                                    <select ng-model="vp.city_destination">
+                                        <option ng-repeat="city in cities" value="{{city}}">{{city.name}}</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-lg-4 dates-type">
+                                
+                                <div class="input-field leave">
+                                    <label>Ida:</label>
+                                    <input type="text" name="date_leave" ng-model="vp.date_leave">
+                                </div>
+                                <div class="input-field leave">
+                                    <label>Volta:</label>
+                                    <input type="text" name="date_return" ng-model="vp.date_return">
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 search-form-btn-div">
+                    <button class="btn btn-search search button" ng-click="Add()">
+                      <span class="icone-buscar_right"></span>
+                      <span class="btn-text" data-loading-text="AGUARDE...">BUSCAR PASSAGENS</span>
+                    </button>
+                </div>
+            </div>
+            
+        </section>
+        
+    </div>
+    
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+        <div class="caption">
+          <h3>{{ awesomeThing.title }}</h3>
+          <p>{{ awesomeThing.description }}</p>
+          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
