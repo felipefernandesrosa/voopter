@@ -1,82 +1,109 @@
-<div class="container">
-
-  <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
-  </div>
-
-  <div class="jumbotron text-center">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://voopter.com.br/assets/imgs/layout/logo-voopter.png" alt="I'm Yeoman" class="logo center-block" />
+        </div>
+    </div>
+  <div class="jumbotron search-box text-center">
     
     <div ng-app="myApp" ng-controller="MainController">
         
-        <section class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <img src="https://voopter.com.br/assets/imgs/layout/logo-voopter.png" alt="I'm Yeoman"><br>
-                </div>
-            </div>
-            
-            <div class="row">
+      <section class="container">
+          
+          <div class="row">
+            <form name="searchForm">
                 <div class="col-lg-10">
                     <div class="search-form">
                         <div class="row">
                             
                             <div class="col-lg-8 origin-destination-passengers">
-                                
-                                <div class="input-field origin airport-selector">
-                                    <label>ORIGEM</label>
-                                    <select ng-model="vp.city_origin">
-                                        <option ng-repeat="city in cities" value="{{city}}">{{city.name}}</option>
-                                    </select>
+                                <div class="row">
+                                  <div class="col-xs-6">
+                                    <div class="input-field origin airport-selector">
+                                        <label>ORIGEM</label>
+                                        <select ng-model="vp.city_origin" class="form-control" ng-required="true">
+                                            <option ng-repeat="city in cities" value="{{city}}">{{city.name}}</option>
+                                        </select>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="col-xs-6">
+                                    <div class="input-field origin airport-selector">
+                                        <label>DESTINO</label>
+                                        <select ng-model="vp.city_destination" class="form-control" ng-required="true">
+                                            <option ng-repeat="city in cities" value="{{city}}">{{city.name}}</option>
+                                        </select>
+                                    </div>
+                                  </div>
                                 </div>
-                                
-                                <div class="input-field origin airport-selector">
-                                    <label>DESTINO</label>
-                                    <select ng-model="vp.city_destination">
-                                        <option ng-repeat="city in cities" value="{{city}}">{{city.name}}</option>
-                                    </select>
-                                </div>
-                                
                             </div>
-                           
+                            
                             <div class="col-lg-4 dates-type">
-                                 <pre>Selected date is: <em>{{vp.date_leave | date:'shortDate' }}</em></pre>
-
-                                <div class="input-field leave">
-                                    <label>Ida:</label>
-                                    <p class="input-group">
-                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="vp.date_leave" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                                        <span class="input-group-btn">
-                                          <button type="button" class="btn btn-default" ng-click="open1(this)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                        </span>
-                                    </p>
-                                </div>
-                                
-                                <div class="input-field leave">
-                                    <label>Volta:</label>
-                                     <p class="input-group">
-                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="vp.date_return" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                                        <span class="input-group-btn">
-                                          <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-                                        </span>
-                                    </p>
+                                <div class="row">
+                                    
+                                    <div class="col-xs-6 input-field leave">
+                                        <label>Ida:</label>
+                                          <p class="input-group">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   uib-datepicker-popup="{{format}}"
+                                                   ng-model="vp.date_leave"
+                                                   is-open="popup1.opened"
+                                                   datepicker-options="dateOptions"
+                                                   ng-required="true"
+                                                   close-text="Close"
+                                                   alt-input-formats="altInputFormats"
+                                                />
+                                            <span class="input-group-btn">
+                                              <button type="button" class="btn btn-default" ng-click="open1(this)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                          </p>
+                                    </div>
+                                  
+                                    <div class="col-xs-6 input-field leave">
+                                        <label>Volta:</label>
+                                         <p class="input-group">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   uib-datepicker-popup="{{format}}"
+                                                   ng-model="vp.date_return"
+                                                   is-open="popup2.opened"
+                                                   datepicker-options="dateOptions"
+                                                   ng-required="radioModel != 'one-way-flight'"
+                                                   close-text="Close"
+                                                   ng-disabled="radioModel == 'one-way-flight'"
+                                                   alt-input-formats="altInputFormats"
+                                              />
+                                            <span class="input-group-btn">
+                                              <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    
                                 </div>
                                 
                             </div>
                             
+                            <div class="col-lg-4 pull-right btn-group ">
+                                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'one-way-flight'">Só Ida</label>
+                                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'round-trip'">Ida e Volta</label>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-2 search-form-btn-div">
-                    <button class="btn btn-search search button" ng-click="Add()">
+                    <button class="btn btn-lg btn-primary btn-search search button" ng-click="Add()" ng-disabled="searchForm.$invalid">
                       <span class="icone-buscar_right"></span>
                       <span class="btn-text" data-loading-text="AGUARDE...">BUSCAR PASSAGENS</span>
                     </button>
                 </div>
-            </div>
             
-        </section>
-        
+            </form>
+            
+          </div>
+      </section>
+      
     </div>
     
   </div>
