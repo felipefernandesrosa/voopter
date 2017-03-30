@@ -11,7 +11,6 @@
         <section class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Compare preços de <strong>passagens aéreas</strong> de vários sites</h1>
                     <img src="https://voopter.com.br/assets/imgs/layout/logo-voopter.png" alt="I'm Yeoman"><br>
                 </div>
             </div>
@@ -38,16 +37,28 @@
                                 </div>
                                 
                             </div>
-                            
+                           
                             <div class="col-lg-4 dates-type">
-                                
+                                 <pre>Selected date is: <em>{{vp.date_leave | date:'shortDate' }}</em></pre>
+
                                 <div class="input-field leave">
                                     <label>Ida:</label>
-                                    <input type="text" name="date_leave" ng-model="vp.date_leave">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="vp.date_leave" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                        <span class="input-group-btn">
+                                          <button type="button" class="btn btn-default" ng-click="open1(this)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </p>
                                 </div>
+                                
                                 <div class="input-field leave">
                                     <label>Volta:</label>
-                                    <input type="text" name="date_return" ng-model="vp.date_return">
+                                     <p class="input-group">
+                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="vp.date_return" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                        <span class="input-group-btn">
+                                          <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </p>
                                 </div>
                                 
                             </div>
