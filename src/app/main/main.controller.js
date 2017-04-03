@@ -9,25 +9,25 @@
     function MainController($scope, $filter, $window) {
       
         $scope.cities = [
-            {
-                "name" : "Rio De Janeiro",
-                "uf": "RJ",
-                "url_name" : "rio-de-janeiro",
-                "airport" : "GIG"
-                
-            },
-            {
-                "name" : "São Paulo",
-                "uf": "SP",
-                "url_name" : "sao-paulo",
-                "airport"  : "GRU"
-            },
-            {
-                "name" : "Porto Alegre - POA",
-                "uf": "SP",
-                "url_name" : "porto-alegre",
-                "airport"  : "POA"
-            }
+          {
+            "name" : "Rio De Janeiro",
+            "uf": "RJ",
+            "url_name" : "rio-de-janeiro",
+            "airport" : "GIG"
+              
+          },
+          {
+            "name" : "São Paulo",
+            "uf": "SP",
+            "url_name" : "sao-paulo",
+            "airport"  : "GRU"
+          },
+          {
+            "name" : "Porto Alegre - POA",
+            "uf": "SP",
+            "url_name" : "porto-alegre",
+            "airport"  : "POA"
+          }
         ];
        
        /**
@@ -63,18 +63,15 @@
             var city_origin = JSON.parse($scope.vp.city_origin);
             var city_destination = JSON.parse($scope.vp.city_destination);
             
-            
             if($scope.vp.date_leave != undefined){
               var date_leave = '#dl%5B%5D='+$filter('date')($scope.vp.date_leave,"yyyyMMdd");  
             }else{
-              console.log('to aqui');
               var date_leave = '';
             }
             
             if($scope.vp.date_return != undefined){
               var date_return = '&dr%5B%5D='+$filter('date')($scope.vp.date_return,"yyyyMMdd");  
             }else{
-              console.log('to aqui2');
               var date_return = '';
             }
             

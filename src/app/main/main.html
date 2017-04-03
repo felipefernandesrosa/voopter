@@ -16,7 +16,7 @@
                     <div class="search-form">
                         <div class="row">
                             
-                            <div class="col-lg-8 origin-destination-passengers">
+                            <div class="col-lg-7 origin-destination-passengers">
                                 <div class="row">
                                   <div class="col-xs-6">
                                     <div class="input-field origin airport-selector">
@@ -38,65 +38,62 @@
                                 </div>
                             </div>
                             
-                            <div class="col-lg-4 dates-type">
-                                <div class="row">
-                                    
-                                    <div class="col-xs-6 input-field leave">
-                                        <label>Ida:</label>
-                                          <p class="input-group">
-                                            <input type="text"
-                                                   class="form-control"
-                                                   uib-datepicker-popup="{{format}}"
-                                                   ng-model="vp.date_leave"
-                                                   is-open="popup1.opened"
-                                                   datepicker-options="dateOptions"
-                                                   ng-required="true"
-                                                   close-text="Close"
-                                                   alt-input-formats="altInputFormats"
-                                                />
-                                            <span class="input-group-btn">
-                                              <button type="button" class="btn btn-default" ng-click="open1(this)"><i class="glyphicon glyphicon-calendar"></i></button>
-                                            </span>
-                                          </p>
-                                    </div>
-                                  
-                                    <div class="col-xs-6 input-field leave">
-                                        <label>Volta:</label>
-                                         <p class="input-group">
-                                            <input type="text"
-                                                   class="form-control"
-                                                   uib-datepicker-popup="{{format}}"
-                                                   ng-model="vp.date_return"
-                                                   is-open="popup2.opened"
-                                                   datepicker-options="dateOptions"
-                                                   ng-required="radioModel != 'one-way-flight'"
-                                                   close-text="Close"
-                                                   ng-disabled="radioModel == 'one-way-flight'"
-                                                   alt-input-formats="altInputFormats"
-                                              />
-                                            <span class="input-group-btn">
-                                              <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-                                            </span>
-                                        </p>
-                                    </div>
-                                    
+                            <div class="col-lg-5 dates-type">
+                              <div class="row">
+                                <div class="col-xs-6 input-field leave">
+                                  <label>Ida:</label>
+                                    <p class="input-group">
+                                      <input type="text"
+                                             class="form-control"
+                                             uib-datepicker-popup="{{format}}"
+                                             ng-model="vp.date_leave"
+                                             is-open="popup1.opened"
+                                             datepicker-options="dateOptions"
+                                             ng-required="true"
+                                             close-text="Close"
+                                             alt-input-formats="altInputFormats"
+                                          />
+                                      <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open1(this)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                      </span>
+                                    </p>
                                 </div>
                                 
+                                <div class="col-xs-6 input-field leave">
+                                  <label>Volta:</label>
+                                   <p class="input-group">
+                                      <input type="text"
+                                             class="form-control"
+                                             uib-datepicker-popup="{{format}}"
+                                             ng-model="vp.date_return"
+                                             is-open="popup2.opened"
+                                             datepicker-options="dateOptions"
+                                             ng-required="radioModel != 'one-way-flight'"
+                                             close-text="Close"
+                                             ng-disabled="radioModel == 'one-way-flight'"
+                                             alt-input-formats="altInputFormats"
+                                        />
+                                      <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                      </span>
+                                  </p>
+                                </div>
+                              </div>
                             </div>
                             
-                            <div class="col-lg-4 pull-right btn-group ">
-                                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'one-way-flight'">Só Ida</label>
-                                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'round-trip'">Ida e Volta</label>
+                            <div class="col-lg-5 pull-right btn-group trip-type-selector ">
+                                <label class="col-xs-6 btn btn-primary" ng-model="radioModel" uib-btn-radio="'one-way-flight'">Só Ida</label>
+                                <label class="col-xs-6 btn btn-primary" ng-model="radioModel" uib-btn-radio="'round-trip'">Ida e Volta</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-2 search-form-btn-div">
-                    <button class="btn btn-lg btn-primary btn-search search button" ng-click="Add()" ng-disabled="searchForm.$invalid">
-                      <span class="icone-buscar_right"></span>
-                      <span class="btn-text" data-loading-text="AGUARDE...">BUSCAR PASSAGENS</span>
-                    </button>
+                  <button class="btn btn-lg btn-primary btn-search search button" ng-click="Add()" ng-disabled="searchForm.$invalid">
+                    <span class="icone-buscar_right"></span>
+                    <span class="btn-text" data-loading-text="AGUARDE...">BUSCAR PASSAGENS</span>
+                  </button>
                 </div>
             
             </form>
